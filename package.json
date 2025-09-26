@@ -1,0 +1,46 @@
+{
+  "name": "nexus-smart-home-hub",
+  "version": "1.0.0",
+  "description": "Stunning 3D product showcase website for NEXUS Smart Home Hub with immersive experiences and business conversion features",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "three.js",
+    "framer-motion",
+    "smart-home",
+    "3d",
+    "product-showcase"
+  ],
+  "author": "TG Marketing",
+  "license": "MIT",
+  "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "autoprefixer": "^10.4.21",
+    "framer-motion": "^12.23.20",
+    "lucide-react": "^0.544.0",
+    "postcss": "^8.5.6",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.180.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  },
+  "devDependencies": {
+    "@types/three": "^0.180.0",
+    "tailwindcss": "^3.4.17"
+  }
+}
