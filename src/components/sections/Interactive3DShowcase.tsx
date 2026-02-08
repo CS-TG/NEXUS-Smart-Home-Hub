@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import InteractiveTablet from '../ui/InteractiveTablet';
-import FloatingBackground3D from '../3d/FloatingBackground3D';
 import { Wifi, Battery, Cpu, Router } from 'lucide-react';
 
 const Interactive3DShowcase = () => {
@@ -12,7 +11,7 @@ const Interactive3DShowcase = () => {
   const [devicesConnected, setDevicesConnected] = useState(47);
   const [tabletScreen, setTabletScreen] = useState('dashboard');
 
-  // Simulate dynamic features
+  // Simulate dynamic features - Reduced frequency for performance
   useEffect(() => {
     const interval = setInterval(() => {
       // Simulate battery level changes
@@ -31,7 +30,7 @@ const Interactive3DShowcase = () => {
         const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
         return Math.max(30, Math.min(50, prev + change));
       });
-    }, 2000);
+    }, 5000); // Increased from 2000ms to 5000ms for better performance
 
     return () => clearInterval(interval);
   }, []);
@@ -85,9 +84,6 @@ const Interactive3DShowcase = () => {
 
   return (
     <section id="interactive-showcase" className="py-24 relative overflow-hidden">
-      {/* 3D Background */}
-      <FloatingBackground3D intensity="low" className="opacity-30" />
-      
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/50"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

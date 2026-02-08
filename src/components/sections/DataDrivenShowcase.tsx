@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import FloatingBackground3D from '../3d/FloatingBackground3D';
 import { Play, Pause, RotateCcw, TrendingUp, Award, Users, Zap, CheckCircle } from 'lucide-react';
 
 const DataDrivenShowcase = () => {
@@ -150,9 +149,6 @@ const DataDrivenShowcase = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-16 relative overflow-hidden">
-      {/* 3D Background */}
-      <FloatingBackground3D intensity="medium" className="opacity-20" />
-      
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-slate-950/60 z-10"></div>
       {/* Section Header */}

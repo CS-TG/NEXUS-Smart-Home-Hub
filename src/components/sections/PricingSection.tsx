@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Clock, MapPin } from 'lucide-react';
+import { Check, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 
 const PricingSection = () => {
-  const [selectedPlan, setSelectedPlan] = useState('pro');
 
   const plans = [
     {
@@ -12,14 +10,15 @@ const PricingSection = () => {
       price: 4999,
       originalPrice: 6499,
       description: 'Perfect for small apartments and first-time smart home users',
+      badge: 'Demo Pricing',
       features: [
         'NEXUS Hub + 7" Control Tablet',
         'Up to 25 connected devices',
-        '8-hour backup battery',
-        'Basic load shedding prep',
+        '8-hour backup battery (Load Shedding)',
+        'Basic Eskom outage automation',
         'Mobile app control',
         'Voice assistant (English/Afrikaans)',
-        '1-year warranty'
+        '1-year warranty + SA support'
       ],
       popular: false
     },
@@ -28,16 +27,18 @@ const PricingSection = () => {
       name: 'NEXUS Pro',
       price: 9999,
       originalPrice: 12999,
-      description: 'Ideal for medium to large homes with advanced automation needs',
+      description: 'Ideal for medium to large homes with advanced automation',
+      badge: 'Most Popular',
       features: [
         'NEXUS Hub + 10" HD Control Tablet',
         'Up to 100 connected devices',
-        '12-hour backup battery',
-        'Advanced load shedding automation',
-        'Energy monitoring & solar integration',
+        '12-hour backup battery (Load Shedding Ready)',
+        'Advanced Eskom outage automation',
+        'Solar panel integration & monitoring',
+        'Energy cost optimization (save up to 40%)',
         'Security monitoring with cameras',
-        'Multi-language voice control',
-        'Professional installation',
+        'Multi-language voice (EN/AF/ZU/XH)',
+        'Professional SA installation',
         '2-year warranty'
       ],
       popular: true
@@ -48,16 +49,17 @@ const PricingSection = () => {
       price: 19999,
       originalPrice: 24999,
       description: 'Commercial-grade solution for smart buildings and offices',
+      badge: 'Business Solution',
       features: [
         'NEXUS Hub + Multiple 12" Tablets',
         'Unlimited connected devices',
         'Multi-building management',
-        '24-hour backup power system',
-        'Enterprise security & monitoring',
-        'Custom automation workflows',
-        'Analytics dashboard',
-        'Dedicated support team',
-        '5-year warranty'
+        '24-hour backup power (Stage 8 Ready)',
+        'Solar farm integration & monitoring',
+        'Enterprise security & compliance',
+        'Custom automation & analytics',
+        'Dedicated SA support team',
+        '5-year warranty + priority service'
       ],
       popular: false
     }
@@ -73,18 +75,23 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          {/* Demo Watermark */}
+          <div className="inline-flex items-center space-x-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-4 py-2 mb-6">
+            <Sparkles className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm text-yellow-400 font-medium">Portfolio Demo - Concept Pricing</span>
+          </div>
+
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-            Choose Your Smart Home Package
+            Smart Home Packages
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-            Every NEXUS package includes free setup, training, and our satisfaction guarantee.
-            Prices dynamically adjusted for your location.
+            Conceptual pricing for South African market. Designed for load shedding resilience and energy optimization.
           </p>
 
           {/* Location Indicator */}
           <div className="inline-flex items-center space-x-2 bg-nexus-500/10 border border-nexus-500/20 rounded-full px-4 py-2">
             <MapPin className="w-4 h-4 text-nexus-400" />
-            <span className="text-sm text-nexus-400">Pricing for San Francisco, CA</span>
+            <span className="text-sm text-nexus-400">Pricing for South Africa (ZAR)</span>
           </div>
         </motion.div>
 
@@ -131,50 +138,53 @@ const PricingSection = () => {
                 ))}
               </ul>
 
-              <motion.button
-                className={`w-full py-3 px-6 rounded-xl font-semibold transition-all ${
+              <motion.a
+                href="https://tgmarqeting.co.za/assessment"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 px-6 rounded-xl font-semibold transition-all block text-center ${
                   plan.popular
                     ? 'bg-gradient-to-r from-nexus-500 to-nexus-600 text-white hover:from-nexus-600 hover:to-nexus-700'
                     : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setSelectedPlan(plan.id)}
               >
-                {selectedPlan === plan.id ? 'Selected' : 'Choose Plan'}
-              </motion.button>
+                Get Similar Solution
+              </motion.a>
             </motion.div>
           ))}
         </div>
 
-        {/* Limited Time Offer */}
+        {/* Portfolio Demo CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-red-900/20 to-orange-900/20 border border-red-500/30 rounded-2xl p-6 text-center"
+          className="bg-gradient-to-r from-nexus-900/20 to-purple-900/20 border border-nexus-500/30 rounded-2xl p-8 text-center"
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Clock className="w-5 h-5 text-red-400" />
-            <span className="text-red-400 font-semibold">Limited Time Offer</span>
+            <Sparkles className="w-5 h-5 text-yellow-400" />
+            <span className="text-yellow-400 font-semibold">Portfolio Demonstration</span>
           </div>
-          <p className="text-white mb-4">
-            Save up to $300 on your NEXUS Hub - Early bird pricing ends in:
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Want a Custom Smart Home Solution?
+          </h3>
+          <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+            This NEXUS demo showcases TG MARQETING's ability to build modern, performant web experiences.
+            Get a free consultation for your own AI-powered business platform.
           </p>
-          <div className="flex justify-center space-x-4 text-center">
-            <div className="bg-red-500/20 rounded-lg p-3">
-              <div className="text-2xl font-bold text-white">23</div>
-              <div className="text-sm text-red-300">Hours</div>
-            </div>
-            <div className="bg-red-500/20 rounded-lg p-3">
-              <div className="text-2xl font-bold text-white">47</div>
-              <div className="text-sm text-red-300">Minutes</div>
-            </div>
-            <div className="bg-red-500/20 rounded-lg p-3">
-              <div className="text-2xl font-bold text-white">12</div>
-              <div className="text-sm text-red-300">Seconds</div>
-            </div>
-          </div>
+          <motion.a
+            href="https://tgmarqeting.co.za/assessment"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span>Get Your Free Assessment</span>
+            <ArrowRight className="w-5 h-5" />
+          </motion.a>
         </motion.div>
       </div>
     </section>

@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimization - Disable animations for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
 /* Base styles */
 * {
   margin: 0;
@@ -13,12 +32,22 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
   line-height: 1.6;
   color: #ffffff;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   overflow-x: hidden;
+  /* Performance boost */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Custom utilities */
@@ -171,6 +200,104 @@ body {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* High-Performance CSS Mesh Gradient Background */
+.bg-gradient-mesh {
+  background: 
+    radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 0.12) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.07) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.08) 0px, transparent 50%),
+    linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating Orb Animations - Smooth & Performance Optimized */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 30px) scale(1.08);
+  }
+  66% {
+    transform: translate(25px, -25px) scale(0.92);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  33% {
+    transform: translate(calc(-50% + 35px), calc(-50% + 35px)) scale(1.1);
+  }
+  66% {
+    transform: translate(calc(-50% - 30px), calc(-50% - 20px)) scale(0.9);
+  }
+}
+
+@keyframes float-4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -40px) scale(1.06);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.94);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 25s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 28s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.animate-float-3 {
+  animation: float-3 30s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.animate-float-4 {
+  animation: float-4 26s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+/* Hardware acceleration for smooth animations */
+.floating-orb {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Canvas container styles */

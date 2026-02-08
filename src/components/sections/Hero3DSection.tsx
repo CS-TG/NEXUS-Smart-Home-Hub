@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Wifi, Users, Zap } from 'lucide-react';
-import FloatingBackground3D from '../3d/FloatingBackground3D';
+import { MapPin, Wifi, Zap, Sparkles } from 'lucide-react';
+import ShaderBackground from '../3d/ShaderBackground';
 
 const Hero3DSection = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -35,8 +35,18 @@ const Hero3DSection = () => {
 
   return (
     <section id="hero3d" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <FloatingBackground3D intensity="high" className="opacity-20" />
+      {/* Shader Background */}
+      <ShaderBackground intensity={0.6} />
+
+      {/* Portfolio Demo Watermark */}
+      <div className="absolute top-8 right-8 z-50">
+        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-full px-4 py-2 backdrop-blur-sm">
+          <div className="flex items-center space-x-2">
+            <Sparkles className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm text-yellow-400 font-medium">Portfolio Demo by TG MARQETING</span>
+          </div>
+        </div>
+      </div>
       
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-nexus-950/40" />
@@ -126,7 +136,7 @@ const Hero3DSection = () => {
             </div>
           </motion.div>
           
-          {/* CTA Buttons - Functional */}
+          {/* CTA Buttons - Portfolio Links */}
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
             initial={{ opacity: 0, y: 30 }}
@@ -134,24 +144,26 @@ const Hero3DSection = () => {
             transition={{ duration: 0.8, delay: 1.4 }}
           >
             <motion.button
-              onClick={() => scrollToSection('story')}
+              onClick={() => scrollToSection('features')}
               className="px-8 py-4 bg-gradient-to-r from-nexus-500 to-nexus-600 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-nexus-500/25 transition-all duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Users className="w-5 h-5" />
-              <span>See Family Story</span>
+              <Zap className="w-5 h-5" />
+              <span>Explore Features</span>
             </motion.button>
             
-            <motion.button
-              onClick={() => scrollToSection('interactive-showcase')}
+            <motion.a
+              href="https://tgmarqeting.co.za/assessment"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-nexus-500/50 text-nexus-400 font-semibold text-lg rounded-xl backdrop-blur-sm hover:bg-nexus-500/10 transition-all duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Wifi className="w-5 h-5" />
-              <span>Try Live Demo</span>
-            </motion.button>
+              <Sparkles className="w-5 h-5" />
+              <span>Get Similar Solution</span>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

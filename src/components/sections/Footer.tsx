@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import FloatingBackground3D from '../3d/FloatingBackground3D';
+import ShaderBackground from '../3d/ShaderBackground';
 import { 
   MapPin, 
   Phone, 
@@ -7,13 +7,12 @@ import {
   Clock, 
   Shield, 
   Zap, 
-  Home, 
-  Users,
-  Award,
+  Home,
   Github,
   Twitter,
   Linkedin,
-  Facebook
+  Facebook,
+  Sparkles
 } from 'lucide-react';
 
 const Footer = () => {
@@ -32,8 +31,8 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-slate-950 overflow-hidden">
-      {/* 3D Background */}
-      <FloatingBackground3D intensity="low" className="opacity-15" />
+      {/* Shader Background */}
+      <ShaderBackground intensity={0.2} />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent"></div>
@@ -51,29 +50,34 @@ const Footer = () => {
               className="space-y-6"
             >
               <div>
-                <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-nexus-400 to-nexus-600 bg-clip-text text-transparent mb-3">
-                  NEXUS
-                </h3>
+                <div className="flex items-center space-x-2 mb-3">
+                  <h3 className="text-2xl font-display font-bold bg-gradient-to-r from-nexus-400 to-nexus-600 bg-clip-text text-transparent">
+                    NEXUS
+                  </h3>
+                  <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-full px-2 py-1">
+                    <span className="text-xs text-yellow-400 font-medium">Demo</span>
+                  </div>
+                </div>
                 <p className="text-slate-300 leading-relaxed">
-                  South Africa's first load-shedding-proof smart home hub. 
-                  Engineered in Cape Town for African resilience.
+                  Portfolio demonstration showcasing modern web development capabilities 
+                  by <a href="https://tgmarqeting.co.za" target="_blank" rel="noopener noreferrer" className="text-nexus-400 hover:underline font-semibold">TG MARQETING</a>.
                 </p>
               </div>
               
-              <div className="flex items-center space-x-2 text-green-400">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">1,247+ Homes Protected</span>
+              <div className="flex items-center space-x-2 text-nexus-400">
+                <Sparkles className="w-4 h-4" />
+                <span className="text-sm font-medium">Interactive Demo Project</span>
               </div>
 
-              {/* Awards */}
+              {/* Tech Stack */}
               <div className="space-y-2">
-                <div className="flex items-center space-x-2 text-nexus-400">
-                  <Award className="w-4 h-4" />
-                  <span className="text-sm">Tech Innovation Award 2025</span>
+                <div className="flex items-center space-x-2 text-slate-400">
+                  <Zap className="w-4 h-4" />
+                  <span className="text-sm">React + TypeScript + WebGL</span>
                 </div>
-                <div className="flex items-center space-x-2 text-nexus-400">
+                <div className="flex items-center space-x-2 text-slate-400">
                   <Shield className="w-4 h-4" />
-                  <span className="text-sm">SA Energy Efficiency Winner</span>
+                  <span className="text-sm">Framer Motion + Tailwind CSS</span>
                 </div>
               </div>
             </motion.div>
@@ -85,43 +89,36 @@ const Footer = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="space-y-6"
             >
-              <h4 className="text-white font-semibold text-lg">Quick Access</h4>
+              <h4 className="text-white font-semibold text-lg">Explore Demo</h4>
               <ul className="space-y-3">
                 <li>
                   <button 
-                    onClick={() => scrollToSection('hero3d')}
-                    className="text-slate-300 hover:text-nexus-400 transition-colors flex items-center space-x-2 group"
-                  >
-                    <Home className="w-4 h-4 group-hover:text-nexus-400" />
-                    <span>Home Control Demo</span>
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('interactive-showcase')}
+                    onClick={() => scrollToSection('features')}
                     className="text-slate-300 hover:text-nexus-400 transition-colors flex items-center space-x-2 group"
                   >
                     <Zap className="w-4 h-4 group-hover:text-nexus-400" />
-                    <span>Live Features</span>
+                    <span>Features Showcase</span>
                   </button>
                 </li>
                 <li>
                   <button 
-                    onClick={() => scrollToSection('story')}
+                    onClick={() => scrollToSection('pricing')}
                     className="text-slate-300 hover:text-nexus-400 transition-colors flex items-center space-x-2 group"
                   >
-                    <Users className="w-4 h-4 group-hover:text-nexus-400" />
-                    <span>Customer Results</span>
+                    <Home className="w-4 h-4 group-hover:text-nexus-400" />
+                    <span>Concept Pricing</span>
                   </button>
                 </li>
                 <li>
-                  <button 
-                    onClick={() => scrollToSection('futuristic-features')}
+                  <a 
+                    href="https://tgmarqeting.co.za"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-slate-300 hover:text-nexus-400 transition-colors flex items-center space-x-2 group"
                   >
-                    <Shield className="w-4 h-4 group-hover:text-nexus-400" />
-                    <span>Future Tech</span>
-                  </button>
+                    <Sparkles className="w-4 h-4 group-hover:text-nexus-400" />
+                    <span>TG MARQETING Main Site</span>
+                  </a>
                 </li>
               </ul>
             </motion.div>

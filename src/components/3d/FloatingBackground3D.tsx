@@ -23,8 +23,14 @@ const FloatingBackground3D = ({ intensity = 'medium', className = '' }: Floating
     <div className={`absolute inset-0 ${className}`} style={{ opacity: getParticleCount() }}>
       <Canvas
         camera={{ position: [0, 0, 15], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
-        dpr={[1, 1.5]} // Lower DPR for performance
+        gl={{ 
+          antialias: false, // Disabled for performance
+          alpha: true,
+          powerPreference: 'high-performance',
+          stencil: false,
+          depth: false
+        }}
+        dpr={[1, 1]} // Fixed at 1x for better performance
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.1} />

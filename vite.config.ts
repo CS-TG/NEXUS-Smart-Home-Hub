@@ -13,6 +13,24 @@ export default defineConfig({
   optimizeDeps: {
     include: ['three', '@react-three/fiber', '@react-three/drei'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          'framer': ['framer-motion'],
+          'lucide': ['lucide-react']
+        }
+      }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  },
   server: {
     port: 3000,
   },

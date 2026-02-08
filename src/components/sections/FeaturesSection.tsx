@@ -1,43 +1,31 @@
 import { motion } from 'framer-motion';
-import { Zap, Shield, Brain, Wifi, Smartphone, Home } from 'lucide-react';
+import { Zap, Shield, Brain, Home } from 'lucide-react';
 
 const FeaturesSection = () => {
   const features = [
     {
+      icon: Zap,
+      title: 'Load Shedding Protection',
+      description: 'Intelligent battery backup system with 12+ hour runtime. Auto-switching ensures your home stays smart during Eskom outages.',
+      color: 'from-yellow-500 to-orange-500'
+    },
+    {
       icon: Brain,
       title: 'AI-Powered Automation',
-      description: 'Advanced machine learning adapts to your lifestyle, predicting and automating your home preferences.',
+      description: 'Advanced machine learning adapts to your lifestyle, predicting and automating your home preferences while optimizing energy use.',
       color: 'from-purple-500 to-pink-500'
     },
     {
       icon: Shield,
       title: 'Military-Grade Security',
-      description: 'End-to-end encryption and biometric authentication keep your smart home data completely secure.',
+      description: 'End-to-end encryption and biometric authentication keep your smart home data completely secure with local SA data centers.',
       color: 'from-green-500 to-teal-500'
     },
     {
-      icon: Zap,
-      title: 'Lightning Fast Response',
-      description: 'Sub-millisecond response times ensure your commands are executed instantly across all devices.',
-      color: 'from-yellow-500 to-orange-500'
-    },
-    {
-      icon: Wifi,
-      title: 'Universal Compatibility',
-      description: 'Works seamlessly with 10,000+ smart devices from every major brand and protocol.',
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      icon: Smartphone,
-      title: '3D Mobile Control',
-      description: 'Immersive mobile app with AR visualization lets you control your home in three dimensions.',
-      color: 'from-indigo-500 to-purple-500'
-    },
-    {
       icon: Home,
-      title: 'Energy Optimization',
-      description: 'AI-driven energy management reduces utility costs by up to 40% while maximizing comfort.',
-      color: 'from-red-500 to-pink-500'
+      title: 'Solar Integration & Energy Savings',
+      description: 'Seamless solar panel integration with AI-driven energy management reduces utility costs by up to 40% while maximizing comfort.',
+      color: 'from-blue-500 to-cyan-500'
     }
   ];
 

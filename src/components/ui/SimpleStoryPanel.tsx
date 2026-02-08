@@ -1,20 +1,5 @@
-impinterface SimpleStoryPanelProps {
-  chapterNumber?: number;
-  panelNumber?: number;
-  title: string;
-  content: React.ReactNode;
-  backgroundImage?: string;
-  dataVisualization?: React.ReactNode;
-}
-
-const SimpleStoryPanel = ({
-  chapterNumber,
-  panelNumber,
-  title,
-  content,
-  backgroundImage,
-  dataVisualization
-}: SimpleStoryPanelProps) => { 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface SimpleStoryPanelProps {
@@ -28,7 +13,6 @@ interface SimpleStoryPanelProps {
 }
 
 const SimpleStoryPanel = ({
-  id,
   chapterNumber,
   panelNumber,
   title,
